@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <script>
+        const QUOTES = [
+            {
+                quote: "A mother is your first friend, your best friend, your forever friend.", 
+                author: "Unknown"
+            }, 
+            {
+                quote: "Mother is a verb. It’s something you do. Not just who you are.", 
+                author: "Dorothy Canfield Fisher"
+            }, 
+            {
+                quote: "Moms are the people who know us the best and love us the most.", 
+                author: "Unknown"
+            }, 
+            {
+                quote: "A mother’s love is the fuel that enables a normal human being to do the impossible", 
+                author: "Marion C. Garretty."
+            }, 
+            {
+                quote: "Mother’s love is peace. It need not be acquired, it need not be deserved.", 
+                author: "Erich Fromm"
+            }
+        ];
+        window.onload = init;
+        function init(){
+            console.log('Js loaded');
+            generateQuote();
+        }
+
+        function generateQuote(){
+            console.log("Button is clicked");
+            let randomIndex = Math.floor(Math.random()*QUOTES.length);
+            let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=%22How%20wonderful%20it%20is%20that%20nobody%20need%20wait%20a%20single%20moment%20before%20starting%20to%20improve%20the%20world.%22%20Anne%20Frank";
+            document.getElementById('text').innerText = QUOTES[randomIndex].quote;
+            document.getElementById('author').innerText = QUOTES[randomIndex].author;
+            document.getElementById('tweet-quote').href = twitterLink;
+        }
+    </script>
+    <title>Random Quote</title>
+    <style>
+        #quote-box{
+margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row py-3">
+            <wrapper id="quote-box">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <div id="text"></div>
+                        </h5>
+                    </div>
+                    <p class="card-text">
+                        <div id="author"></div>
+                    </p>
+                    <button id="new-quote" onclick="generateQuote();" class="btn btn-success">New Quote</button>
+                    <a id="tweet-quote" target="_blank" href="#" class="btn btn-primary">Tweet Quote</a>
+                </div>
+                </wrapper>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
